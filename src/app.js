@@ -12,22 +12,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use('/api/auth', authRoutes);
-app.use('/api/workouts', workoutRoutes);
-app.use('/api/exercises', exerciseRoutes);
-
-app.get('/', (req, res) => {
-    res.json({
-        message: 'Welcome to Workout Tracker API',
-        version: '1.0.0',
-        endpoints: {
-            auth: '/api/auth',
-            workouts: '/api/workouts',
-            exercises: '/api/exercises'
-        }
-    });
-});
-
 /**************************************************** */
 app.get('/api/test', (req, res) => {
     res.json({
@@ -54,6 +38,23 @@ app.post('/api/echo', (req, res) => {
 });
 
 /**************************************************** */
+
+app.use('/api/auth', authRoutes);
+app.use('/api/workouts', workoutRoutes);
+app.use('/api/exercises', exerciseRoutes);
+
+app.get('/', (req, res) => {
+    res.json({
+        message: 'Welcome to Workout Tracker API',
+        version: '1.0.0',
+        endpoints: {
+            auth: '/api/auth',
+            workouts: '/api/workouts',
+            exercises: '/api/exercises'
+        }
+    });
+});
+
 
 const PORT = process.env.PORT || 3000;
 mongoose.connect(process.env.MONGODB_URI)

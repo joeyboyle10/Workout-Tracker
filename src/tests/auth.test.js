@@ -65,7 +65,7 @@ describe('Auth Endpoints', () => {
             const res = await request(app)
                 .post('/api/auth/login')
                 .send({
-                    email: 'test@example.com'
+                    email: 'test@example.com'.
                     password: 'password123'
                 });
 

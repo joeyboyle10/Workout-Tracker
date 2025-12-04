@@ -6,7 +6,7 @@ const getExercises = async (req, res) => {
 
         const query = {};
         if (category) query.category = category;
-        if (muscleGroup) query.muscleGroup = muscledGroup;
+        if (muscleGroup) query.muscleGroup = muscleGroup;
 
         const exercises = await Exercise.find(query).sort({ name: 1 });
 
